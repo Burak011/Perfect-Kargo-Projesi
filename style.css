@@ -1,0 +1,267 @@
+/* style.css */
+
+body {
+    background: #f7fafd;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+  
+  .navbar {
+    border-radius: 0 0 1.2rem 1.2rem;
+    box-shadow: 0 2px 16px rgba(33,150,243,0.07);
+    background: #fff !important;
+  }
+  
+  .logo-svg {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
+  
+  /* Özel Turuncu Buton */
+  .btn-orange {
+    background: linear-gradient(90deg, #ff9800, #ffb347);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 1.5rem;
+    padding: 0.55rem 1.3rem;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.08);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-orange:hover, .btn-orange:focus {
+    background: linear-gradient(90deg, #ffa726, #ffd580);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(255, 152, 0, 0.16);
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    width: 100vw;
+    max-width: 100%;
+    border-radius: 0 0 2.5rem 2.5rem;
+    background: linear-gradient(90deg, #e3f2fd 55%, #ffe0b2 100%);
+    box-shadow: 0 8px 40px 0 rgba(33,150,243,0.09);
+    margin: 0 auto 2rem auto;
+    padding: 2.7rem 0 2.2rem 0;
+  }
+  .stats-row {
+    width: 100vw;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }  
+  .hero-section .animated-box {
+    width: 85px; height: 85px;
+    margin: 0 auto 1.2rem auto;
+    animation: floatBox 2.6s infinite alternate cubic-bezier(.43,.09,.54,.98);
+  }
+  @keyframes floatBox {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-15px);}
+  }
+  
+  /* İstatistik Kartları */
+  #cargoListSection .row {
+    justify-content: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .stat-card {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 18px rgba(33,150,243,0.07);
+    padding: 1.5rem;
+    text-align: center;
+    border-left: 6px solid #2196f3;
+    transition: box-shadow 0.2s;
+  }
+  .stat-card:hover {
+    box-shadow: 0 6px 32px rgba(33,150,243,0.13);
+  }
+  .stat-title {
+    color: #2196f3;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .stat-value {
+    color: #ff9800;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-top: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Arama ve Filtre */
+  #searchInput, #statusFilter {
+    border-radius: 1.2rem;
+    border: 2px solid #e3f2fd;
+    font-weight: 500;
+    transition: border-color 0.2s;
+  }
+  #searchInput:focus, #statusFilter:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px #bbdefb5c;
+  }
+  
+  /* Kargo Kartları */
+  .cargo-card {
+    background: #fff;
+    border-radius: 1.1rem;
+    box-shadow: 0 4px 18px rgba(33,150,243,0.07);
+    margin-bottom: 1.3rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border-left: 5px solid #ff9800;
+    padding: 1.1rem 1.2rem 1rem 1.2rem;
+  }
+  .cargo-card:hover {
+    box-shadow: 0 8px 32px rgba(255,152,0,0.13);
+    transform: scale(1.01) translateY(-3px);
+  }
+  .cargo-card .cargo-title {
+    font-weight: 700;
+    color: #2196f3;
+    font-size: 1.1rem;
+  }
+  .cargo-card .cargo-status {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 0.7rem;
+  }
+  
+  /* Durum Badgeleri */
+  .badge-status {
+    padding: 0.43em 1.05em;
+    border-radius: 2em;
+    font-size: 0.98em;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.09);
+    letter-spacing: 0.01em;
+  }
+  .badge-status.yolda {
+    background: linear-gradient(90deg, #2196f3, #64b5f6);
+  }
+  .badge-status.dagitimda {
+    background: linear-gradient(90deg, #ff9800, #ffb74d);
+  }
+  .badge-status.teslim {
+    background: linear-gradient(90deg, #43a047, #81c784);
+  }
+  
+  /* Modal İçeriği */
+  .modal-header {
+    background: #f7fafd;
+    border-bottom: none;
+  }
+  .modal-title {
+    color: #2196f3;
+    font-weight: 700;
+  }
+  .modal-content {
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(33,150,243,0.13);
+  }
+  .modal-footer {
+    border-top: none;
+  }
+  
+  /* Responsive ve Grid */
+  @media (min-width: 1400px) {
+    .container-fluid {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .hero-section {
+      border-radius: 0 0 1.1rem 1.1rem;
+      padding: 2rem 0 1rem 0;
+    }
+    .stats-row { padding-left: 0 !important; padding-right: 0 !important; }
+    .footer-main { font-size: 1rem; }
+  }
+  /* Footer alanı */
+  .footer-main {
+    background: linear-gradient(90deg, #e3f2fd 60%, #ffe0b2 120%);
+    border-radius: 2rem 2rem 0 0;
+    font-size: 1.09rem;
+    color: #444;
+    box-shadow: 0 -6px 32px 0 rgba(33,150,243,0.09);
+    letter-spacing: 0.01em;
+  }
+  
+  .footer-link {
+    color: #2196f3 !important;
+    text-decoration: none !important;
+    transition: color 0.18s, opacity 0.18s;
+    opacity: 0.85;
+  }
+  .footer-link:hover {
+    color: #ff9800 !important;
+    opacity: 1;
+  }
+  .footer-miniabout {
+    font-size: 0.97em;
+    opacity: 0.92;
+  }
+  
+  /* Küçük animasyon ve helper’lar */
+  .cargo-detail-map {
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2.5px solid #e3f2fd;
+    margin: 0.6rem 0 0.2rem 0;
+    box-shadow: 0 2px 16px rgba(33,150,243,0.08);
+  }
+  
+  ::-webkit-scrollbar-thumb { background: #e3f2fd; border-radius: 9px; }
+  ::-webkit-scrollbar { background: #f7fafd; width: 7px; }
+  
+  ::selection {
+    background: #ffe0b2;
+  }
+  
+  /* ---- Legal/Yasal Sayfa Stilleri (KVKK, Gizlilik, Çerez) ---- */
+.legal-bg {
+    background: linear-gradient(120deg, #e3f2fd 60%, #ffe0b2 120%);
+    min-height: 100vh;
+  }
+  
+  .legal-container {
+    background: #fff;
+    border-radius: 1.3rem;
+    box-shadow: 0 4px 28px #2196f33a;
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+    padding: 2.7rem 1.3rem 2.4rem 1.3rem;
+    max-width: 720px;
+  }
+  
+  .legal-title {
+    color: #2196f3;
+    font-weight: 700;
+    font-size: 2.1rem;
+    letter-spacing: 0.01em;
+  }
+  .legal-subtitle {
+    color: #ff9800;
+    font-weight: 600;
+    font-size: 1.13rem;
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+  }
+  .legal-container p {
+    font-size: 1.08rem;
+    color: #444;
+  }
+  
+  @media (max-width: 767px) {
+    .legal-container { padding: 1.3rem 0.6rem 1.3rem 0.6rem; }
+    .legal-title { font-size: 1.5rem; }
+  }
+  
+  

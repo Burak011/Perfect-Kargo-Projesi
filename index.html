@@ -1,0 +1,250 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfect Kargo</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Kendi stil dosyamız -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts (isteğe bağlı) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Logo SVG -->
+        <img src="img/box-anim.svg" alt="Perfect Kargo Logo" class="logo-svg">
+        Perfect Kargo
+      </a>
+      <button class="btn btn-orange ms-auto" data-bs-toggle="modal" data-bs-target="#addCargoModal">
+        + Kargo Ekle
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section w-100">
+    <div class="animated-box">
+      <img src="img/box-anim.svg" alt="Kargo Kutusu" width="85">
+    </div>
+    <h1 class="display-5 fw-bold">Kargon Nerede?</h1>
+    <p class="lead text-muted">Perfect Kargo ile gönderilerini anlık takip et!</p>
+  </section>
+
+  <!-- SLIDER (Carousel) -->
+  <section class="container-fluid px-4 mb-4">
+    <div id="cargoCarousel" class="carousel slide rounded-4 overflow-hidden shadow-sm" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/slider1.jpg" class="d-block w-100" alt="Hızlı Kargo Teslimatı">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>En Hızlı Kargo Teslimatı</h5>
+            <p>Gönderiniz anında yola çıkıyor!</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/slider2.jpg" class="d-block w-100" alt="Güvenli Teslimat">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Güvenli ve Takip Edilebilir</h5>
+            <p>Kargonuzun her anı Perfect Kargo ile elinizin altında.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/slider3.jpg" class="d-block w-100" alt="Her Yere Hızlı Ulaşım">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Türkiye'nin Her Yerine</h5>
+            <p>81 ile kargo ağı!</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#cargoCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#cargoCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- AVANTAJLAR / HAKKIMIZDA -->
+  <section class="container my-5">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3" style="color:#2196f3;">Neden Perfect Kargo?</h2>
+        <ul class="list-unstyled fs-5">
+          <li class="mb-2"><span class="badge bg-success me-2">&#10003;</span> 7/24 Kargo Takibi</li>
+          <li class="mb-2"><span class="badge bg-success me-2">&#10003;</span> Gerçek Zamanlı Harita & Bildirimler</li>
+          <li class="mb-2"><span class="badge bg-success me-2">&#10003;</span> Güvenli ve Hızlı Teslimat</li>
+          <li class="mb-2"><span class="badge bg-success me-2">&#10003;</span> Tüm Türkiye'ye Yaygın Ağı</li>
+          <li class="mb-2"><span class="badge bg-success me-2">&#10003;</span> Müşteri Yorumları ve Puanlama</li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="img/about.svg" alt="Avantajlar" class="img-fluid" style="max-height: 250px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT KARTLARI TAM GENİŞLİK -->
+  <section class="stats-row container-fluid my-4 px-4">
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-title">Toplam Kargo</div>
+          <div class="stat-value" id="totalCount">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-title">Teslim Edilen</div>
+          <div class="stat-value" id="deliveredCount">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-title">Yolda</div>
+          <div class="stat-value" id="onWayCount">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-title">Dağıtımda</div>
+          <div class="stat-value" id="outForDeliveryCount">0</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARAMA VE FİLTRE -->
+  <section class="container-fluid my-4 px-4">
+    <div class="row g-2 justify-content-center">
+      <div class="col-md-7 col-12 mb-2 mb-md-0">
+        <input type="text" class="form-control" id="searchInput" placeholder="Takip numarası veya alıcı adı ile ara...">
+      </div>
+      <div class="col-md-3 col-12">
+        <select class="form-select" id="statusFilter">
+          <option value="">Tüm Durumlar</option>
+          <option value="Yolda">Yolda</option>
+          <option value="Dağıtımda">Dağıtımda</option>
+          <option value="Teslim Edildi">Teslim Edildi</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- KARGO LİSTESİ -->
+  <section class="container-fluid px-4" id="cargoListSection">
+    <div class="row g-4" id="cargoList">
+      <!-- JS ile kargo kartları buraya gelecek -->
+    </div>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer-main mt-5 pt-4 pb-2 text-center">
+    <div class="container">
+      <div class="row gy-2">
+        <!-- LOGO ve KISA HAKKINDA -->
+        <div class="col-md-4 text-md-start text-center mb-3 mb-md-0">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-2">
+            <img src="img/box-anim.svg" alt="Perfect Kargo Logo" style="width:38px; height:38px; margin-right:7px;">
+            <span class="fs-5 fw-bold" style="color:#2196f3;">Perfect Kargo</span>
+          </div>
+          <div class="footer-miniabout text-muted small" style="max-width:280px;">
+            Modern altyapısı, hızlı dağıtım ağı ve müşteri memnuniyeti odaklı hizmet anlayışıyla Türkiye'nin dört bir yanında güvenli kargo çözümleri sunar.
+          </div>
+        </div>
+        <!-- İLETİŞİM -->
+        <div class="col-md-4">
+          <div class="fw-semibold mb-2" style="color:#ff9800;">İletişim & Destek</div>
+          <div class="small mb-1">Müşteri Hizmetleri: <a href="tel:08500000000" class="footer-link">0850 000 00 00</a></div>
+          <div class="small mb-1">E-Posta: <a href="mailto:destek@perfectkargo.com" class="footer-link">destek@perfectkargo.com</a></div>
+          <div class="small mb-1">Adres: Çünür Mahallesi, Isparta, Türkiye</div>
+        </div>
+        <!-- HIZLI MENÜ & YASAL -->
+        <div class="col-md-4">
+          <div class="fw-semibold mb-2" style="color:#ff9800;">Yasal & Bilgilendirme</div>
+          <div class="small mb-1"><a href="kvkk.html" class="footer-link">KVKK Aydınlatma Metni</a></div>
+          <div class="small mb-1"><a href="gizlilik.html" class="footer-link">Gizlilik Politikası</a></div>
+          <div class="small mb-1"><a href="cookie.html" class="footer-link">Çerez Politikası</a></div>
+          <div class="small text-muted mt-2">Perfect Kargo, yasal düzenlemelere ve müşteri gizliliğine tam uyumlu çalışır.</div>
+        </div>
+      </div>
+  
+      <hr class="my-4">
+  
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <div class="small text-muted mb-2 mb-md-0">
+          © 2025 Perfect Kargo. Tüm hakları saklıdır. | Tasarım & Kod: Doğukan Burak Çelikten
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Kargo Ekle Modal -->
+  <div class="modal fade" id="addCargoModal" tabindex="-1" aria-labelledby="addCargoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="addCargoForm">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addCargoLabel">Yeni Kargo Ekle</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="trackingNo" class="form-label">Takip Numarası</label>
+              <input type="text" class="form-control" id="trackingNo" required>
+            </div>
+            <div class="mb-3">
+              <label for="receiver" class="form-label">Alıcı Adı</label>
+              <input type="text" class="form-control" id="receiver" required>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Adres</label>
+              <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Durum</label>
+              <select class="form-select" id="status" required>
+                <option value="Yolda">Yolda</option>
+                <option value="Dağıtımda">Dağıtımda</option>
+                <option value="Teslim Edildi">Teslim Edildi</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="location" class="form-label">Kargo Konumu (Harita için, örn: İstanbul)</label>
+              <input type="text" class="form-control" id="location" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-orange">Ekle</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kargo Detay Modalı -->
+  <div class="modal fade" id="cargoDetailModal" tabindex="-1" aria-labelledby="cargoDetailLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cargoDetailLabel">Kargo Detayı</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+        </div>
+        <div class="modal-body" id="cargoDetailBody">
+          <!-- JS ile detaylar ve harita burada olacak -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS + app.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
